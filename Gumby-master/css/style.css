@@ -1,0 +1,33 @@
+/*#sidebar-nav li.active a {
+    color: #FFF;
+    background: none repeat scroll 0% 0% #3085D6;
+}*/
+
+#sidebar-nav li a {
+	color: gray;
+    transition: all 0.4s ease 0s;
+}
+
+#sidebar-nav li:hover {
+    background-color: lightgray;
+}
+
+
+#sidebar-nav a {
+    display: block;
+    padding: 8px 14px;
+}
+
+a {
+    text-decoration: none;
+    outline: 0px none;
+    line-height: inherit;
+}
+
+p.active {
+	background-color: red;
+}
+
+#docs-content ul {
+    list-style: disc;
+}
