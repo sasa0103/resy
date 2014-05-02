@@ -126,7 +126,8 @@
 <div class="row">
 
 <section class="tabs twelve columns">
-
+<h2 class="page-header">Rechnersysteme 1, SS 14</h2>
+<p>Diese Seite dient als Hilfestellung für das Lösen der Übungsaufgaben. Die Verfahren beruhen auf der Vorlesung von vor 3 Jahren und könnten sich im aktuellen Durchlauf geändert haben. </p>
 	<ul class="tab-nav">
 	    <li class="active"><a href="#">Übungsblatt 2</a></li>
 	    <!--<li><a href="#">Aufgabe 2</a></li>
@@ -136,7 +137,7 @@
 
 	<div class="tab-content active">
 	<section class="two columns">
-	<nav id="sidebar-nav-holder" class="vertical-nav unfixed" gumby-pin="[data-target='icons']" gumby-fixed="top" style="top: 0px; left: 40px; width: 590px;">
+	<nav id="sidebar-nav-holder" class="vertical-nav unfixed" gumby-pin="[data-target='icons']" gumby-fixed="top">
 		<ul id="sidebar-nav">
 			<li class="active">
 				<a class="skip" gumby-goto="[data-target='aiken']" gumby-duration="600" gumby-update="" href="#aiken">Aiken</a>
@@ -164,21 +165,21 @@
 	</section>
 	<section id="docs-content" class="nine columns push_one">
 		<ul class="twelve columns">
-		Dieses Übungsblatt beschäftigt sich mit verschiedenen Kodierungen. Die in Klammer stehenden Zahlen geben die jeweilige Bewertung der einzelnen Stellen bei der Umwandlung an.
-			<div data-target="aiken">
+		<p class="page-header">Dieses Übungsblatt beschäftigt sich mit verschiedenen Kodierungen. Die in Klammer stehenden Zahlen geben die jeweilige Bewertung der einzelnen Stellen bei der Umwandlung an.</p>
+			<div class="page-header" data-target="aiken">
 				<h3>Aiken</h3>
 				(2-4-2-1)
 			</div>
-			<div data-target="bcd">
+			<div class="page-header" data-target="bcd">
 				<h3>BCD</h3>
 		    	(8-4-2-1)
 			</div>
-			<div data-target="exzess">
+			<div class="page-header" data-target="exzess">
 				<h3>Exzess-3</h3>
 				Auf die Zahl die umgewandelt wird muss zuvor 3 addiert werden. </br>
 		    	(8-4-2-1)
 			</div>
-			<div data-target="gray">
+			<div class="page-header" data-target="gray">
 				<h3>Gray-Code</h3>
 				Die Hamming-Distanz zwischen den aufeinander folgenden Codewörtern beträgt immer 1
 		    	<table class="rounded">
@@ -231,12 +232,12 @@
 					</tbody>
 				</table>
 			</div>
-			<div data-target="onehot">
+			<div class="page-header" data-target="onehot">
 				<h3>One-Hot</h3>
 		    	Auch 1-aus-10, da nur ein Bit gesetzt wird, also der Code nur eine Eins enthält.</br>
-		    	(9,8,7,6,5,4,3,2,1,0)
+		    	(9-8-7-6-5-4-3-2-1-0)
 			</div>
-			<div data-target="shannonFano">
+			<div class="page-header" data-target="shannonFano">
 				<h3>Shannon-Fano</h3>
 		    	Vorgehen:</br>
 		    	<ul><li>sortiere die Wahrscheinlichkeiten der Größe nach </li>
@@ -245,7 +246,7 @@
 		    	<li>Wiederhole die Schritte mit den Teiltabellen bis keine Teilung mehr möglich ist</li>
 		    	</ul>
 			</div>
-			<div data-target="huffman">
+			<div class="page-header" data-target="huffman">
 				<h3>Huffman</h3>
 		    	Vorgehen:</br>
 		    	<ul><li>füge die zwei kleinsten Wahrscheinlichkeiten zu einem Baum zusammen. Die kleine der beiden bekommt die Null, die größere die Eins als Kantengewicht</li>
