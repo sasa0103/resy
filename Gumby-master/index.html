@@ -131,6 +131,7 @@
 		<ul class="tab-nav">
 			<li class="active"><a href="#">Übungsblatt 2</a></li>
 			<li><a href="#">Übungsblatt 3</a></li>
+			<li><a href="#">Übungsblatt 4</a></li>
 			<!--<li><a href="#">Aufgabe 3</a></li>-->
 		</ul>
 
@@ -320,13 +321,76 @@
 				<div class="page-header" data-target="rechnen">
 					<h3>Rechnen</h3>
 						Mit Radix-B Zahlen lässt sich genauso rechnen wie man es in der Grundschule gelernt hat, nur zu einer anderen Basis. <br>
-					Tricks fürs das Konvertieren:<br>
 				</div>
 			</ul>
 		</section>
 	</div>
+	
+
+
 	<div class="tab-content">
-			<p>Don't forget about me! I'm tab 3!</p>
+		<section class="two columns">
+			<nav id="sidebar-nav-2-holder" class="vertical-nav unfixed" gumby-pin="[data-target='icons']"  >
+				<ul id="sidebar-nav">
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='complementKonvertieren']" gumby-duration="600" gumby-update="" href="#complementKonvertieren">Konvertieren</a>
+					</li>
+					<li>
+						<a class="skip" gumby-goto="[data-target='add']" gumby-duration="600" gumby-update="" href="#add">Addition und Subtraktion</a>
+					</li>
+					<li>
+						<a class="skip" gumby-goto="[data-target='mult']" gumby-duration="600" gumby-update="" href="#mult">Multiplikation</a>
+					</li>
+					<li>
+						<a class="skip" gumby-goto="[data-target='div']" gumby-duration="600" gumby-update="" href="#div">Division</a>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section id="docs-content" class="nine columns push_one">
+			<ul class="twelve columns">
+				<p class="page-header">Diese Übungsblatt beschäftigt sich mit den B-Complement Zahlen, wie man sie konvertiert und wie man mit ihnen rechnet.</p>
+				<div class="page-header" data-target="crc">
+					<h3>Konvertieren</h3>
+					Bis auf die erste Stelle werden die Zahlen so betrachtet wie die Radix-B Zahlen. Der Wert an der ersten Stelle x berechnet sich wie folgt, wobei B die Basis ist(in der Vorlesung werden nur gerade Basen betrachtet^^):
+					<img style="height: 90px" src="img/b_complement.png"><br>
+					von Dezimal nach B-Complement:<br>
+					<div style="text-indent:20px;">Zuerst in eine Radix-B Zahl n umwandeln, eine Null voranstellen, danach 0 - n im Zielsystem.<br></div>
+					von B-Complement in Dezimal:<br>
+					<div style="text-indent:20px;">&alpha;(x) (erste Stelle) wie oben berechnen, restliche Werte wie gewohnt addieren<br></div>
+				</div>
+				<div class="page-header" data-target="add">
+					<h3>Addition und Subtraktion</h3>
+					Die Addition und die Subtraktion werden wie bei den Radix-B Zahlen gerechent. Bei der ersten Stelle (höchswertiges Bit) sollte man jedoch beachten, dass bei Werten größer B/2 die Werte negativ sind.<br>
+					Bsp:<br>
+					B=10; y = 7+7 = 94<br>
+					&alpha;(7) = 7-10 = -3 <br>
+					&alpha;(9) = 9-10 = -1 <br>
+					94 = -1*10 + 4*1 = -6
+				</div>
+				<div class="page-header" data-target="mult">
+					<h3>Multiplikation</h3>
+					1.Fall, zwei negative Zahlen:<br>
+					<div style="text-indent:20px;">sobald man bei den ersten Stellen angelangt ist, muss mit dem &alpha;(x) gerechnet werden (beachtet - * - = +). Beim Addieren nicht vergessen, dass die ersten Stellen negativ sein können.<br></div>
+					2.Fall, zwei positive Zahlen:<br>
+					<div style="text-indent:20px;"> Wie sonst auch, wobei die erste Stelle < B/2 sein muss, falls nicht, einfach eine Null vorne dran schreiben.<br></div>
+					3.Fall, je eine Zahl:<br>
+					<div style="text-indent:20px;">Wie in Fall 1, ist zu beachten, dass bei der erste Stelle der negativen Zahl mit &alpha;(x) gerechnet wird. Die Zwischenergebnisse sind dann auch negativ.<br></div>
+				</div>
+				<div class="page-header" data-target="div">
+					<h3>Division</h3>
+					x:y = q R r<br>
+					1.Fall, zwei negative Zahlen:<br>
+					<div style="text-indent:20px;">Die Zahl zuerst erweitern, also |y|+1 mal B-1 davor schreiben. Danach "normal" rechnen, zu beachten: Im ersten Schritt wird y mit B-1 erweitert, und passt somit B-1 mal in die Zahl. Danach kann man einfach normal weiter rechnen, wobei man mit -y rechnet, also der positiven Zahl. q wird dann einfach negiert.<br></div>
+					2.Fall, zwei positive Zahlen:<br>
+					<div style="text-indent:20px;"> Alles bleibt beim Alten, das Erweitern mit der Null nicht vergessen.<br></div>
+					3.Fall, erste Zahl negativ, zweite positiv:<br>
+					<div style="text-indent:20px;">Wie in Fall 1, nur wird q nicht negiert<br></div>
+					4.Fall, erste Zahl positiv, zweite negativ:<br>
+					<div style="text-indent:20px;">Wie in Fall 1, nur wird die erste Zahl mit Null erweitert, da ja positiv<br></div>
+				</div>
+			</ul>
+		</section>
 	</div>
 
 </section>	
