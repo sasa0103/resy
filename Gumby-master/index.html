@@ -358,6 +358,9 @@
 					<div style="text-indent:20px;">Zuerst in eine Radix-B Zahl n umwandeln, eine Null voranstellen, danach 0 - n im Zielsystem.<br></div>
 					von B-Complement in Dezimal:<br>
 					<div style="text-indent:20px;">&alpha;(x) (erste Stelle) wie oben berechnen, restliche Werte wie gewohnt addieren<br></div>
+					Kleiner Tipp:<br>
+					Man kann die Zahlen auch negieren, wenn man x-1 rechenet und dann versucht die Ziffern auf B-1 aufzufüllen.<br>
+					Bsp.: <[1,2]>4 = 6 -> <[1,1]> -> <[2,2]>4 = -6 
 				</div>
 				<div class="page-header" data-target="add">
 					<h3>Addition und Subtraktion</h3>
@@ -379,15 +382,38 @@
 				</div>
 				<div class="page-header" data-target="div">
 					<h3>Division</h3>
-					x:y = q R r<br>
-					1.Fall, zwei negative Zahlen:<br>
-					<div style="text-indent:20px;">Die Zahl zuerst erweitern, also |y|+1 mal B-1 davor schreiben. Danach "normal" rechnen, zu beachten: Im ersten Schritt wird y mit B-1 erweitert, und passt somit B-1 mal in die Zahl. Danach kann man einfach normal weiter rechnen, wobei man mit -y rechnet, also der positiven Zahl. q wird dann einfach negiert.<br></div>
-					2.Fall, zwei positive Zahlen:<br>
-					<div style="text-indent:20px;"> Alles bleibt beim Alten, das Erweitern mit der Null nicht vergessen.<br></div>
-					3.Fall, erste Zahl negativ, zweite positiv:<br>
-					<div style="text-indent:20px;">Wie in Fall 1, nur wird q nicht negiert<br></div>
-					4.Fall, erste Zahl positiv, zweite negativ:<br>
-					<div style="text-indent:20px;">Wie in Fall 1, nur wird die erste Zahl mit Null erweitert, da ja positiv<br></div>
+					x/y = q R r<br>
+					Zuerst einmal zu dem generellen Vorgehen, welches egal bei welchem Fall immer gemacht werden muss:<br>
+						<ol type="I">
+							<li>x mit "Länge von y" vielen Stellen erweitern, dass heißt, wenn x positiv ist Nullen, wenn sie negativ ist, (B-1)en vorranstellen</li>
+							<li>Der erste Schritt wird immer mit einem negativen y ausgeführt, was um eine Stelle erweitert wurde.(Kann man bei positivem x auch ignorieren, da es eh nullmal rein passt, aber so kann man es sich besser merken^^)</li>
+						</ol>
+					Die Schritte 2-n werden wie bei den Radix-B Zahlen gerechnet mit den folgeneden Unterscheidungen.
+					<table border="0">
+					  <colgroup>
+					    <col width="4*">
+					    <col width="2*">
+					    <col width="1*">
+					  </colgroup>
+					  <tr>
+					  	<td>x,y</td>
+					    <td>-</td>
+					    <td>+</td>
+					  </tr>
+					  <tr>
+					   	<td>-</td>
+					    <td>Statt y wird mit -y, also dem positiven Wert gerechnet. Das Ergebnis wird negiert.</td>
+					    <td>Nichts</td>
+					  </tr>
+					  <tr>
+					   	<td>+</td>
+					    <td>Das Ergebnis wird negiert.</td>
+					    <td>Nichts</td>
+					  </tr>
+					</table>
+
+
+
 				</div>
 			</ul>
 		</section>
