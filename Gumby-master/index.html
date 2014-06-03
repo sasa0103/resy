@@ -132,6 +132,7 @@
 			<li class="active"><a href="#">Übungsblatt 2</a></li>
 			<li><a href="#">Übungsblatt 3</a></li>
 			<li><a href="#">Übungsblatt 4</a></li>
+			<li><a href="#">Übungsblatt 5</a></li>
 			<!--<li><a href="#">Aufgabe 3</a></li>-->
 		</ul>
 
@@ -411,13 +412,108 @@
 					    <td>Nichts</td>
 					  </tr>
 					</table>
-
-
-
 				</div>
 			</ul>
 		</section>
 	</div>
+
+
+
+		<div class="tab-content">
+		<section class="two columns">
+			<nav id="sidebar-nav-2-holder" class="vertical-nav unfixed" gumby-pin="[data-target='icons']"  >
+				<ul id="sidebar-nav">
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='fix']" gumby-duration="600" gumby-update="" href="#fix">Fixpunkt-Zahlen</a>
+					</li>
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='fixRechnen']" gumby-duration="600" gumby-update="" href="#fixRechnen">Fixpunkt-Zahlen Rechnen</a>
+					</li>
+					<li>
+						<a class="skip" gumby-goto="[data-target='gleitkomma']" gumby-duration="600" gumby-update="" href="#gleitkomma">Gleitkomma-Zahlen</a>
+					</li>
+					<li>
+						<a class="skip" gumby-goto="[data-target='gleitRechnen']" gumby-duration="600" gumby-update="" href="#gleitRechnen">Gleitkomma-Zahlen Rechnen</a>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section id="docs-content" class="nine columns push_one">
+			<ul class="twelve columns">
+				<p class="page-header">Diese Übungsblatt beschäftigt sich mit Zahlen in der Kommadarstellung, wie man sie umwandelt und mit ihnen rechnet.</p>
+				<div class="page-header" data-target="fix">
+					<h3>Fixpunkt-Zahlen</h3>
+					Neber der Basis wird hier nun auch die Anzahl der Nachkommastellen angegeben. Man zeichnet sich am besten das Komma in die kodierte Zahl und berechnet die Zahlen vor dem Komma wie gewohnt. Für die Nachkommastellen wird das Schema 2<sup>i</sup> weiter geführt, die erste Stelle hinter dem Komma wird also mit 2⁻¹ gewichtet, die nächste mit 2⁻² usw.. Beispiel:<br>
+					<[1,1,1,1]>2,2 <br>
+					=> 1*2¹ + 1*2⁰ + 1*2⁻¹ + 1*2⁻² = 3,75<br>
+					<br>
+					Für die Rückrichtung kann man zuerst die Zahl vor dem Komma, dann die nach dem Komma kodieren.
+
+				</div>
+				<div class="page-header" data-target="fixRechnen">
+					<h3>Rechnen mit Fixpunkt-Zahlen</h3>
+					Das Rechnen mit den Fixpunkt-Zahlen ist genauso wie mit den B-Complement Zahlen. Wichtig ist, bei Addition und Subtraktion die Zahlen so untereinander zu schreiben, dass das Komma übereinander ist. Bei der Multiplikation muss man darauf achten wo das Komma nach der Rechnung hin muss.
+				</div>
+				<div class="page-header" data-target="gleitkomma">
+					<h3>Gleitkomma-Zahlen</h3>
+					Diese Zahlen berechnen sich aus drei Teilen, den Sign S, dem Exponenten E und der Mantisse M, die sich auch in dieser Reihenfolge in der kodierten Zahl wieder finden. Beispiel:<br>
+					<[0,0,1,1,1,1,1,0]>2,4,3<br>
+					Bedeutet also Basis B = 2, Vorzeichen S = 0 (positiv), Länge e (des Exponente E) = 3, Länge m (der Mantisse M) = 4 <br>
+					<br>
+					<h5>Umrechnen in eine "normale" Kommazahl:</h5>
+					Bias berechnen:<br>
+					ß = (B<sup>e</sup> - 1) div 2  <br>
+					  = (2³ - 1) div 2 = 7 div 2 = 3<br>
+					  <br>
+					(-1)<sup>S</sup> * (M * B<sup>1-m</sup>) * B<sup>E-ß</sup> <br>
+					(-1)<sup>0</sup> * (<[1,1,1,0]> * B<sup>1-4</sup>) * B<sup>3-3</sup> <br>
+					1 * <[1.110]> * 1 = 1.75 (verschieben den Kommas um drei Stellen nach links)<br>
+					<br>
+					
+					<h5>Umrechnen in eine Gleitkomma-Zahl:</h5>
+					1,75 umwandeln in die Form <[1,1,1,1,1,1,1,1]>2,4,3
+					<ol type="I">
+						<li>Vorhandene Informationen aufschreiben; B = 2, e = 3, m = 4, S = 0</li>
+						<li>
+							E = log<sub>B</sub> (|x|) (Ergebnis muss Abgrundet werden)<br>
+							E = ld(1,75) = 0
+						</li>
+						<li>
+							M = |x| * B<sup>-E</sup><br>
+							M = 1,75
+						</li>
+						<li>
+							M` = M * B<sup>m-1</sup><br>
+							M` = 1,75 * 2³ = 14
+						</li>
+						<li>
+							M` als Radix-B Zahl darstellen: <br>
+							<[1,1,1,0]>
+						</li>
+						<li>
+							E` = E + ß<br>
+							E` = 0 + 3 = 3
+						</li>
+						<li>
+							E` als Radix-B ZTahl darstellen: <br>
+							<[0,1,1]>
+						</li>
+						<li>
+							Einzelne Teile in der richtigen Reihenfolge zusammen fassen:<br>
+							<[0,0,1,1,1,1,1,0]>2,4,3
+						</li>
+					</ol>
+				</div>
+
+				<div class="page-header" data-target="gleitRechnen">
+					<h3>Rechnen mit Gleitkomma-Zahlen</h3>
+					Beim Rechnen mit den Gleitkomma-Zahlen sind die Rechenregeln für Potenzen zu beachten. Bei der Addition/Subtraktion muss der kleiner Exponent angeglichen werden, nach der Rechnung kann es passieren, dass nun zwei Ziffern vor dem Komma stehen, dann muss auch hier der Exponent angeglichen werden. Bei der Muliplikation werden die Mantissen multipliziert, die Exponenten Addiert (hier muss einmal der Bias abgezogen werden, da er sonst doppelt vorhanden ist).
+				</div>
+			</ul>
+		</section>
+	</div>
+
+
 
 </section>	
 

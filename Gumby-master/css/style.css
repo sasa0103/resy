@@ -37,3 +37,13 @@ padding-bottom: 9px;
 margin: 20px 0 30px;
 border-bottom: 1px solid #eee;
 }
+
+sup {
+vertical-align: super;
+font-size: smaller;
+}
+
+sub {
+vertical-align: sub;
+font-size: smaller;
+}
