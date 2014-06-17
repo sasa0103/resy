@@ -47,3 +47,10 @@ sub {
 vertical-align: sub;
 font-size: smaller;
 }
+
+code {
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.0;
+
+}
