@@ -134,6 +134,7 @@
 			<li><a href="#">Übungsblatt 4</a></li>
 			<li><a href="#">Übungsblatt 5</a></li>
 			<li><a href="#">Übungsblatt 6</a></li>
+			<li><a href="#">Übungsblatt 7</a></li>
 			<!--<li><a href="#">Aufgabe 3</a></li>-->
 		</ul>
 
@@ -566,6 +567,71 @@
 		</section>
 		</div>
 
+
+		<div class="tab-content">
+		<section class="two columns">
+			<nav id="sidebar-nav-2-holder" class="vertical-nav unfixed" gumby-pin="[data-target='icons']"  >
+				<ul id="sidebar-nav">
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='averest']" gumby-duration="600" gumby-update="" href="#averest">Averest</a>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section id="docs-content" class="nine columns push_one">
+			<ul class="twelve columns">
+				<p class="page-header">Diese Übungsblatt beschäftigt sich mit Quarz, es sollen verschiedene Gatter und Schaltungen implementiert werden.</p>
+				<div class="page-header" data-target="averest">
+					<h3>Averest</h3>
+					Zuerst solltet ihr euch die <a href="http://www.averest.org/">zip-Datei</a> herunter laden und in einem Ordner entpacken, diese braucht ihr um eure Programme zu testen.
+					Dann ladet ihr euch die Dateien in der entsprechenden Aufgabe runter und entpackt auch diese. In diese Vorlagen (.qrz) sollt ihr eure Lösungen schreiben. Zum Testen müsst ihr folgende Schritte ausführen:
+					<ol type="I">
+						<li>averest.exe öffnen, dann geht ein kleines Fenster auf</li>
+						<li>Die .qrz Datei in dieses Fenster ziehen</li>
+						<li>Komplieren, danach müsste eine .aifs Datei in eurem Ornder erscheinen</li>
+						<li>Die aifs2trc.exe öffnen</li>
+						<li>Die .aifs Datei in das Fenster ziehen und Simulation auswählen (.trace)</li>
+						<li>Die .txt Datei enthält jetzt die Lösungen zu den Testfällen, hier könnt ihr schauen ob euer Programm das richtige tut.</li>
+					</ol>
+					Weiter kann ich euch die <a href="http://www.averest.org/wp-content/uploads/2014/03/reference-card.pdf">Reference Card</a> empfehlen, hier findet ihr eine Übersicht der Syntax. Hier ein Beispiel wie euer Programm aussehen soll. <br>
+					<ul>
+					<code><pre>/* ************************************************************************** */
+/*                                                                            */
+/*    eses                   eses                                             */
+/*   eses                     eses                                            */
+/*  eses    eseses  esesese    eses   Embedded Systems Group                  */
+/*  ese    ese  ese ese         ese                                           */
+/*  ese    eseseses eseseses    ese   Department of Computer Science          */
+/*  eses   eses          ese   eses                                           */
+/*   eses   eseses  eseseses  eses    University of Kaiserslautern            */
+/*    eses                   eses                                             */
+/*                                                                            */
+/* ************************************************************************** */
+
+module NOT (bool ?y, !z) {
+    
+if (y == true)
+	z = false;
+if (y == false)
+	z = true;
+
+      nothing;   
+}
+
+// test cases for all possible inputs
+
+drivenby T0 {
+    nothing;
+}
+
+drivenby T1 {
+    y = true;
+}</pre></code>
+				</ul>
+				</div>
+			</ul>
+		</section>
+		</div>
 
 
 </section>	
