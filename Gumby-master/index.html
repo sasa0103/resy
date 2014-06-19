@@ -557,11 +557,17 @@
 				</div>
 				<div class="page-header" data-target="shannon">
 					<h3>Shannon Normalform</h3>
-					Form: if a then 1 else 0
+					Form: if a then 1 else 0 <br>
 					Bsp: <br>
 					a & b<br>
 					1. Schritt: if a then b else 0<br>
 					2. Schritt: if a then (if b then 1 else 0) else 0<br>
+					Bsp: <br>
+					!(d&b^a<->c)<br>
+					1. Schritt: (a?(!(!(d&b)<->c)):(!(d&b<->c))<br>
+					2. Schritt: (a?(b?(!(!d<->c):(!(1<->c)))):(b?(!(d<->c)):(!(0<->c))))<br>
+					3. Schritt: (a?(b?(c?(!(!d<->1):!(!d<->0))):(c?(0:1))):(b?(c?(!(d<->1):!(d<->0))):(c?(1:0))))<br>
+					4. Schritt: (a?(b?(c?(d?(1:0)):(d?(0:1))):(c?(0:1))):(b?(c?(d?(0:1)):(d?(1:0))):(c?(1:0))))
 				</div>
 			</ul>
 		</section>
