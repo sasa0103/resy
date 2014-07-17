@@ -135,6 +135,9 @@
 			<li><a href="#">Übungsblatt 5</a></li>
 			<li><a href="#">Übungsblatt 6</a></li>
 			<li><a href="#">Übungsblatt 7</a></li>
+			<li><a href="#">Übungsblatt 9</a></li>
+			<li><a href="#">Übungsblatt 10</a></li>
+
 			<!--<li><a href="#">Aufgabe 3</a></li>-->
 		</ul>
 
@@ -634,9 +637,132 @@ drivenby T1 {
 		</div>
 
 
+
+		<div class="tab-content">
+		<section class="two columns">
+			<nav id="sidebar-nav-2-holder" class="vertical-nav unfixed" gumby-pin="[data-target='icons']"  >
+				<ul id="sidebar-nav">
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='kv']" gumby-duration="600" gumby-update="" href="#kv">KV-Diagramm</a>
+					</li>
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='quine']" gumby-duration="600" gumby-update="" href="#quine">Quine/ McCluskey</a>
+					</li>
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='ash']" gumby-duration="600" gumby-update="" href="#ash">Ashenhurst Dekomposition</a>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section id="docs-content" class="nine columns push_one">
+			<ul class="twelve columns">
+				<p class="page-header">Diese Übungsblatt beschäftigt sich mit der Formel-Minimierung durch verschiedenen Methoden.</p>
+				<div class="page-header" data-target="kv">
+					<h3>KV-Diagramm</h3>
+					Hier ein Beispiel für ein KV-Diagramm, man beachte das Z-Schema nach dem die Tabelle in das Diagramm eingetragen wird. <br>
+					<img style="height: 450px" src="img/kv.png"> <br>
+					Hier ein Beispiel wie man die DNF und die KNF ablesen kann.
+					<img style="height: 300px" src="img/knfdnf.png">
+				</div>
+				<div class="page-header" data-target="quine">
+					<h3>Quine/McCluskey</h3>
+					Ersetze die * in der gegebenen Wahrheitstafel durch 0 oder 1. <br>
+					&phi;<sub>0</sub> = &phi; &and; ß (* by 0) <br>
+					&phi;<sub>1</sub> = &phi; &and; ß (* by 1) <br>
+					<ol type="I">
+						<li>Alle Belegungen die bei &phi;<sub>1</sub> eine Eins stehen werden in eine neue Tabelle geschrieben, wobei die Belegungen geordnet werden, nach Anzahl der Einsen. Dies ist die erste Spalte der neuen Tabelle.</li>
+						<li>Belegungen in der ersten Zeile zusammenfassen und in die zweite Spalte schreiben. Unterschiede durch * ersetzten. Alle verwendeten Belegungen werden makiert.</li>
+						<li>Wiederhole solange noch Paare gefunden werden können.</li>
+						<li>Eine Matix aufstellen, bei der links die nicht markierten Paare aus der Tabelle vorher eingetragen werden. Oben werden die Belegungen die Eins ergeben von &phi;<sub>0</sub> eingetragen.</li>
+						<li>Kreuze in der Matik werden eingezeichnet, wenn die Belegung in der nicht verwendeten Paaren vorkommen.</li>
+						<li>Schauen ob Dinge wegfallen können.</li>
+						<li>Ergebnis ablesen (1=a, 0=!a, *=nix)</li>
+					</ol>
+
+				</div>
+				<div class="page-header" data-target="ash">
+					<h3>Ashenhurst Dekomposition</h3>
+					<ol type="I">
+						<li>Im KV-Diagramm gleiche Spalten suchen und neu kodieren -> neues KV-Diagramm mit w<sub>0</sub>, !w<sub>0</sub> </li>
+						<li>DNF ablesen -> h(x<sub>1</sub>, y<sub>1</sub>, w<sub>0</sub>) </li>
+						<li>Den Rest mit dem neuen w<sub>0</sub> aufschreiben.</li>
+						<li>DNF ablesen -> g<sub>1</sub>(x<sub>0</sub>, y<sub>0</sub>, c<sub>0</sub>) </li>
+					</ol>
+				</div>
+
+			</ul>
+		</section>
+		</div>
+
+
+	<div class="tab-content">
+		<section class="two columns">
+			<nav id="sidebar-nav-2-holder" class="vertical-nav unfixed" gumby-pin="[data-target='icons']"  >
+				<ul id="sidebar-nav">
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='rs']" gumby-duration="600" gumby-update="" href="#rs">Rabin-Scott</a>
+					</li>
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='aae']" gumby-duration="600" gumby-update="" href="#aae">Automaten Äquivalenz</a>
+					</li>
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='am']" gumby-duration="600" gumby-update="" href="#am">Automaten Minimierung</a>
+					</li>
+					<li class="active">
+						<a class="skip" gumby-goto="[data-target='aufgabe']" gumby-duration="600" gumby-update="" href="#aufgabe">Letzte Aufgabe</a>
+					</li>
+				</ul>
+			</nav>
+		</section>
+		<section id="docs-content" class="nine columns push_one">
+			<ul class="twelve columns">
+				<p class="page-header">Diese Übungsblatt beschäftigt sich mit der Automaten.</p>
+				<div class="page-header" data-target="rs">
+					<h3>Rabin-Scott</h3>
+					Hiermit kann aus einem nicht deterministischen Automaten, ein deterministischer Automat machen. Dazu werden Mengen von Zuständen gebildet, in dem man vom Startzustand beginnend die möglichen Zustände für eine Eingabe zusammenfasst. Bsp.(Hier doppelter Kreis = akzeptierender Zustand): <br>
+					<img style="height: 100px" src="img/rs.png"> <br>
+					Die Kanten von s0' z.B. würde dann zu den Zuständen {s0,s1} für a und {s0,s2} für b gehen.
+					s0' = {s0} <br>
+					s1' = {s0,s1} <br>
+					s2' = {s0,s2} <br>
+					s3' = {s0,s1,s3} <br>
+
+					<img style="height: 150px" src="img/rs2.png"> <br>
+					<a href="http://de.wikipedia.org/wiki/Potenzmengenkonstruktion#Beispiele">wikipedia</a><br>
+				</div>
+				<div class="page-header" data-target="aae">
+					<h3>Automaten Äquivalenz</h3>
+					<ol type="I">
+						<li>Tabelle aufstellen, bei der die Zustände der Automaten oben und links eingetragen werden.</li>
+						<li>Kreuze nach folgendem Schema machen:
+							<ol type="I">
+								<li>&Delta;<sub>0</sub>: x<sub>0</sub> an alle Stellen, an dennen sich die Akzeptanz der Zustände unterscheiden.</li>								
+								<li>&Delta;<sub>1</sub>: x<sub>1</sub> an alle Stellen, an dennen sich die Akzeptanz der Folgezstände (bei Eingabe eines Zeichens) unterscheidet.</li>								
+								<li>&Delta;<sub>2</sub>: x<sub>2</sub> an alle Stellen, wo sich beim Ziel einer Eingabe auch ein x befindet.</li>								
+							</ol>
+						</li>
+						<li>Automaten sind gleich, wenn das erste Kästchen leer ist.</li>
+					</ol>
+
+				</div>
+				<div class="page-header" data-target="am">
+					<h3>Automaten Minimierung</h3>
+					<ol type="I">
+						<li>Gleiches Schema wie bei der Äquivalenz.</li>
+						<li>Gleiche Zeilen werde zusammengefasst zu einem neuen Zustand.</li>
+						<li>Kanten zwischen den neuen Zuständen zeichnen.</li>
+					</ol>
+
+				</div>
+				<div class="page-header" data-target="aufgabe">
+					<h3>Letzte Aufgabe</h3>
+						Hier eine mögliche Lösung für die letzte Aufgabe: <br>
+						<img style="height: 550px" src="img/automat.png"> 
+			</ul>
+		</section>
+		</div>
+
+
 </section>	
-
-
-
 	</body>
 </html>
